@@ -13,6 +13,10 @@ namespace CsharpAlgorithm
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("C# 알고리즘 문제 풀이");
+
+            Picnic picnic = new Picnic();
+            SugarDelivery sugarDelivery = new SugarDelivery();
         }
     }
 }
