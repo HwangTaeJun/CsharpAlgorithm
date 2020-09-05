@@ -39,6 +39,46 @@ namespace CsharpAlgorithm.Source.Algospot
                 canPairListDict[pairList[i]][pairList[i + 1]] = true;
                 canPairListDict[pairList[i + 1]][pairList[i]] = true;
             }
+
+            Console.WriteLine(GetPairCount(0, studentCount));
+        }
+
+        private int GetPairCount(int studentIndex, int studentCount)
+        {
+            int curStudentIndex = -1;
+
+            for (int i = 0; i < studentCount; i++)
+            {
+                if (!pairDict[i])
+                {
+                    curStudentIndex = i;
+                    break;
+                }
+            }
+
+            if (curStudentIndex == -1)
+            {
+                return 1;
+            }
+
+            int count = 0;
+
+            for (int i = curStudentIndex + 1; i < studentCount; i++)
+            {
+                if (!pairDict[curStudentIndex] && !pairDict[i] && canPairListDict[curStudentIndex][i])
+                {
+                    pairDict[curStudentIndex] = true;
+                    pairDict[i] = true;
+
+                    count += GetPairCount(curStudentIndex + 1, studentCount);
+
+                    pairDict[curStudentIndex] = false;
+                    pairDict[i] = false;
+
+                }
+            }
+
+            return count;
         }
     }
 }
