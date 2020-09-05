@@ -16,12 +16,23 @@ namespace CsharpAlgorithm.Source.Algospot
 
         public Picnic()
         {
-            Init(new List<int>() { 0, 1 }, 2, 1);
-            Init(new List<int>() { 0, 1, 1, 2, 2, 3, 3, 0, 0, 2, 1, 3 }, 4, 6);
-            Init(new List<int>() { 0, 1, 0, 2, 1, 2, 1, 3, 1, 4, 2, 3, 2, 4, 3, 4, 3, 5, 4, 5 }, 6, 10);
+            Console.WriteLine("\nAlgospot_Picnic\n");
+
+            List<int> exampleResultList = new List<int>() { 1, 3, 4 };
+            List<int> myResultList = new List<int>();
+
+            myResultList.Add(GetResult(new List<int>() { 0, 1 }, 2, 1));
+            myResultList.Add(GetResult(new List<int>() { 0, 1, 1, 2, 2, 3, 3, 0, 0, 2, 1, 3 }, 4, 6));
+            myResultList.Add(GetResult(new List<int>() { 0, 1, 0, 2, 1, 2, 1, 3, 1, 4, 2, 3, 2, 4, 3, 4, 3, 5, 4, 5 }, 6, 10));
+
+
+            for (int i = 0; i < myResultList.Count; i++)
+            {
+                Console.WriteLine("예제 출력 : " + exampleResultList[i] + " 내 출력 : " + myResultList[i]);
+            }
         }
 
-        private void Init(List<int> pairList, int studentCount, int friendCount)
+        private int GetResult(List<int> pairList, int studentCount, int friendCount)
         {
             for (int i = 0; i < studentCount; i++)
             {
@@ -40,7 +51,7 @@ namespace CsharpAlgorithm.Source.Algospot
                 canPairListDict[pairList[i + 1]][pairList[i]] = true;
             }
 
-            Console.WriteLine(GetPairCount(0, studentCount));
+            return GetPairCount(0, studentCount);
         }
 
         private int GetPairCount(int studentIndex, int studentCount)
