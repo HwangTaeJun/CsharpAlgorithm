@@ -15,11 +15,15 @@ namespace CsharpAlgorithm.Source.BackJoon
         private int smallBagSize = 3;
         public SugarDelivery()
         {
+            Console.WriteLine("\nBackJoon_SugarDelivery\n");
+
+            List<int> exampleResultList = new List<int>() { 4, -1, 2, 3, 3 };
             List<int> defaultInputList = new List<int>() { 18, 4, 6, 9, 11 };
+
 
             for (int i = 0; i < defaultInputList.Count; i++)
             {
-                Console.WriteLine("Input : " + defaultInputList[i] + " Result : " + GetResult(defaultInputList[i]));
+                Console.WriteLine("예제 출력 : " + exampleResultList[i] + " Result : " + GetResult(defaultInputList[i]));
             }
         }
 
