@@ -65,6 +65,7 @@ namespace CsharpAlgorithm.Source.Algospot
 
             for (int i = curStudentIndex + 1; i < studentCount; i++)
             {
+                //각 index의 학생이 pair 할 수 있는 상태이며 각 학생끼리 pair 가능한지 체크
                 if (!pairDict[curStudentIndex] && !pairDict[i] && canPairListDict[curStudentIndex][i])
                 {
                     pairDict[curStudentIndex] = true;
