@@ -48,6 +48,7 @@
     <Compile Include="Source\Algospot\Picnic.cs" />
     <Compile Include="Source\BackJoon\SugarDelivery.cs" />
     <Compile Include="Source\NYPC\2019\MabinogiInventory.cs" />
+    <Compile Include="Source\Programmers\DynamicProgramming\FindPrimeNumber.cs" />
     <Compile Include="Source\Programmers\FullSearch\MockTest.cs" />
   </ItemGroup>
   <ItemGroup>
