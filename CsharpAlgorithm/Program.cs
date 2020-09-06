@@ -22,6 +22,7 @@ namespace CsharpAlgorithm
             SugarDelivery sugarDelivery = new SugarDelivery();
             MabinogiInventory mabinogiInventory = new MabinogiInventory();
             MockTest mockTest = new MockTest();
+            FindPrimeNumber findPrimeNumber = new FindPrimeNumber();
         }
     }
 }
