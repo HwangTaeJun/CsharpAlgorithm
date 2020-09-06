@@ -14,6 +14,15 @@ namespace CsharpAlgorithm.Source.NYPC._2019
     {
         private List<List<bool>> emptySlotList = new List<List<bool>>();
 
+        private List<int> woolPosList = new List<int>();
+        private List<int> woodPosList = new List<int>();
+
+        private int woolCount = 0;
+        private int woodCount = 0;
+
+        private int height = 0;
+        private int width = 0;
+
         public MabinogiInventory()
         {
             List<List<int>> itemInputList = new List<List<int>>();
@@ -30,20 +39,22 @@ namespace CsharpAlgorithm.Source.NYPC._2019
 
             exampleResult.Add(new List<int>() { 12, 0, 3, 2, 2, 2, 2, 3, 2, 4 });
             exampleResult.Add(new List<int>() { 8, 1, 1, 2, 2, 3, 5 });
+
+            GetResulut(itemInputList[0], inventortInputList[0]);
+            GetResulut(itemInputList[1], inventortInputList[1]);
         }
 
         private List<int> GetResulut(List<int> itemInputList, string inventoryInput)
         {
             List<int> resultList = new List<int>();
 
-            int height = itemInputList[0];
-            int width = itemInputList[1];
-            
             int woolPrice = itemInputList[2];
             int woodPrice = itemInputList[3];
-            
-            int woolCount = 0;
-            int woodCoubnt = 0;
+
+            emptySlotList = new List<List<bool>>();
+
+            height = itemInputList[0];
+            width = itemInputList[1];
 
             for (int i = 0; i < height; i++)
             {
@@ -54,51 +65,10 @@ namespace CsharpAlgorithm.Source.NYPC._2019
             {
                 bool isEmpty = inventoryInput[i] == '-';
 
-                emptySlotList[i % height].Add(isEmpty);
+                emptySlotList[i / height].Add(isEmpty);
             }
 
             return resultList;
-
-        }
-
-        private void GetItemCount()
-        {
-            for (int i = 0; i < emptySlotList.Count; i++)
-            {
-                for (int j = 0; j < emptySlotList[i].Count; j++)
-                {
-
-                }
-            }
-        }
-
-        private bool IsFillItem(bool isWool, int x, int y)
-        {
-            if(isWool)
-            {
-                if(emptySlotList[y][x + 1] && emptySlotList[y + 1][x] && emptySlotList[y + 1][x + 1])
-                {
-                    emptySlotList[y][x + 1] = emptySlotList[y + 1][x] = emptySlotList[y + 1][x + 1] = false;
-
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (emptySlotList[y][x] && emptySlotList[y + 1][x] && emptySlotList[y + 2][x])
-                {
-                    emptySlotList[y][x] = emptySlotList[y + 1][x] = emptySlotList[y + 2][x] = false;
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
         }
     }
 }
