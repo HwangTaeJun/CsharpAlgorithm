@@ -48,12 +48,11 @@
     <Compile Include="Source\Algospot\Picnic.cs" />
     <Compile Include="Source\BackJoon\SugarDelivery.cs" />
     <Compile Include="Source\NYPC\2019\MabinogiInventory.cs" />
+    <Compile Include="Source\Programmers\FullSearch\MockTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Source\Programmers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
