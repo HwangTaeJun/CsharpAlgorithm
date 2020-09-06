@@ -7,6 +7,7 @@ using static System.Console;
 using CsharpAlgorithm.Source.Algospot;
 using CsharpAlgorithm.Source.BackJoon;
 using CsharpAlgorithm.Source.NYPC._2019;
+using CsharpAlgorithm.Source.Programmers.FullSearch;
 
 namespace CsharpAlgorithm
 {
@@ -19,6 +20,7 @@ namespace CsharpAlgorithm
             Picnic picnic = new Picnic();
             SugarDelivery sugarDelivery = new SugarDelivery();
             MabinogiInventory mabinogiInventory = new MabinogiInventory();
+            MockTest mockTest = new MockTest();
         }
     }
 }
