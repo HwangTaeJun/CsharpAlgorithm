@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CsharpAlgorithm.Source.Programmers.FullSearch
+namespace CsharpAlgorithm.Source
 {
     /// <summary>
     /// 모의고사 문제 링크 https://programmers.co.kr/learn/courses/30/lessons/42840

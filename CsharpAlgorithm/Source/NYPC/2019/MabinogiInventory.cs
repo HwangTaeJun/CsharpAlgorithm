@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CsharpAlgorithm.Source.NYPC._2019
+namespace CsharpAlgorithm.Source
 {
     /// <summary>
     /// 문제 링크 https://nypc.github.io/2019/2019_online_10.html

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CsharpAlgorithm.Source.BackJoon
+namespace CsharpAlgorithm.Source
 {
     /// <summary>
     /// 문제 링크 https://www.acmicpc.net/problem/2839
