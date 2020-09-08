@@ -8,102 +8,108 @@ namespace CsharpAlgorithm.Source
 {
     class NumberCase
     {
-        private int[] result;
-        private Stack<int> stack;
-        private int r, n;
-        private List<int> resultList = new List<int>();
-        private int[] testArr = new int[5] { 1, 2, 3,4,5};
+        private int[] inputDataArr = null;
+        public List<int> resultList = new List<int>();
+        public int playCount = 0;
 
-        public NumberCase()
+        public NumberCase(int[] inputDataArr)
         {
-
+            this.inputDataArr = inputDataArr;
         }
 
-        public void CreateCombination(int r, int[] temp, int current, int start)
+        public void CreateCombination(int pickCount, int[] tempArr, int current, int start)
         {
-            if (r == current)
+            if (pickCount == current)
             {
-                for (int i = 0; i < temp.Length; i++)
+                for (int i = 0; i < tempArr.Length; i++)
                 {
-                    Console.Write(temp[i]);
+                    Console.Write(tempArr[i]);
                 }
 
                 Console.Write(", ");
             }
             else
             {
-                for (int i = start; i < testArr.Length; i++)
+                for (int i = start; i < inputDataArr.Length; i++)
                 {
-                    temp[current] = testArr[i];
-                    CreateCombination(r, temp, current + 1, i + 1);
+                    tempArr[current] = inputDataArr[i];
+                    CreateCombination(pickCount, tempArr, current + 1, i + 1);
                 }
             }
+
+            Console.WriteLine("끝!");
         }
 
-        public void CreateRepeatedCombination(int r, int[] temp, int current, int start)
+        public void CreateRepeatedCombination(int pickCount, int[] tempArr, int current, int start)
         {
-            if (r == current)
+            if (pickCount == current)
             {
-                for (int i = 0; i < temp.Length; i++)
+                for (int i = 0; i < tempArr.Length; i++)
                 {
-                    Console.Write(temp[i]);
+                    Console.Write(tempArr[i]);
                 }
 
                 Console.Write(", ");
             }
             else
             {
-                for (int i = start; i < testArr.Length; i++)
+                for (int i = start; i < inputDataArr.Length; i++)
                 {
-                    temp[current] = testArr[i];
-                    CreateCombination(r, temp, current + 1, i);
+                    tempArr[current] = inputDataArr[i];
+                    CreateCombination(pickCount, tempArr, current + 1, i);
                 }
             }
         }
 
-        public void CreatePermutation(int r, int[] temp, int current, bool[] visited)
+        public void CreatePermutation(int pickCount, int[] tempArr, int current, bool[] visited)
         {
-            if (r == current)
+            playCount++;
+
+            if (pickCount == current)
             {
-                for (int i = 0; i < temp.Length; i++)
+                string num = null;
+
+                for (int i = 0; i < tempArr.Length; i++)
                 {
-                    Console.Write(temp[i]);
+                    Console.Write(tempArr[i]);
+                    num += tempArr[i];
                 }
 
+                resultList.Add(int.Parse(num));
                 Console.Write(", ");
             }
             else
             {
-                for (int i = 0; i < testArr.Length; i++)
+                for (int i = 0; i < inputDataArr.Length; i++)
                 {
                     if (!visited[i])
                     {
                         visited[i] = true;
-                        temp[current] = testArr[i];
-                        CreatePermutation(r, temp, current + 1, visited);
+                        tempArr[current] = inputDataArr[i];
+                        CreatePermutation(pickCount, tempArr, current + 1, visited);
                         visited[i] = false;
                     }
                 }
             }
         }
 
-        public void CreateRepeatePermutation(int r, int[] temp, int current)
+        public void CreateRepeatePermutation(int pickCount, int[] tempArr, int current)
         {
-            if (r == current)
+            if (pickCount == current)
             {
-                for (int i = 0; i < temp.Length; i++)
+                for (int i = 0; i < tempArr.Length; i++)
                 {
-                    Console.Write(temp[i]);
+                    Console.Write(tempArr[i]);
                 }
 
                 Console.Write(", ");
             }
             else
             {
-                for (int i = 0; i < testArr.Length; i++)
+                for (int i = 0; i < inputDataArr.Length; i++)
                 {
-                    temp[current] = testArr[i];
-                    CreateRepeatePermutation(r, temp, current + 1);
+                    tempArr[current] = inputDataArr[i];
+                    CreateRepeatePermutation(pickCount, tempArr, current + 1);
                 }
             }
         }
