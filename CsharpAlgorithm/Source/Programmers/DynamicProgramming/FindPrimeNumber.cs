@@ -13,9 +13,8 @@ namespace CsharpAlgorithm.Source
     /// </summary>
     class FindPrimeNumber
     {
-        List<string> lstNums = new List<string>();
-        List<long> lstNums2 = new List<long>();
-
+        private char[] inputDataArr = null;
+        private List<string> permList = new List<string>();
 
         public FindPrimeNumber()
         {
@@ -23,186 +22,131 @@ namespace CsharpAlgorithm.Source
 
             List<string> defalutInputList = new List<string>();
 
-            defalutInputList.Add("123");
+            defalutInputList.Add("17");
+            defalutInputList.Add("011");
 
             for (int i = 0; i < defalutInputList.Count; i++)
             {
-                Console.WriteLine(solution(defalutInputList[i]));
+                permList = new List<string>();
+                Console.WriteLine(Solution(defalutInputList[i]));
             }
         }
 
-        public int solution(string numbers)
+        public int Solution(string numbers)
         {
-            lstNums = new List<string>();
-            lstNums2 = new List<long>();
+            inputDataArr = numbers.ToArray();
 
-            int answer = 0;
-            Perm(numbers.ToArray(), 0);
-            lstNums = lstNums.Distinct().ToList();
-            for (int i = 0; i < numbers.Length; i++) 
+            int result = 0;
+
+            for (int i = 1; i < numbers.Length + 1; i++)
             {
-                foreach (long lNum in lstNums.Select(x => long.Parse(x.Substring(i))))
+                CreatePermutation(i, new char[i], 0, new bool[numbers.Length]);
+            }
+
+            permList = permList.Distinct().ToList();
+
+            for (int i = 0; i < permList.Count; i++)
+            {
+                if (IsPrimeNumber(permList[i]))
                 {
-                    lstNums2.Add(lNum);
+                    result++;
                 }
             }
-            lstNums2 = lstNums2.Distinct().ToList();
-            foreach (long lNum in lstNums2)
-            {
-                //Console.WriteLine(lNum.ToString());
-                if (IsPrime(lNum)) answer++;
-            }
-            return answer;
+
+            return result;
         }
 
-        public bool IsPrime(long candidate) // 소수 판정
+        public void CreatePermutation(int pickCount, char[] tempArr, int current, bool[] visited)
         {
-            if ((candidate & 1) == 0)
+            if (pickCount == current)
             {
-                if (candidate == 2)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            for (int i = 3; (i * i) <= candidate; i += 2)
-            {
-                if ((candidate % i) == 0)
-                {
-                    return false;
-                }
-            }
-            return candidate != 1;
-        }
+                string num = null;
+                bool isNumber = false;
 
-        public void Perm(char[] a, int k)   // 순열하기
-        {
-            if (k == a.Length - 1)//순열을 출력
-            {
-                lstNums.Add(new string(a));
+                for (int i = 0; i < tempArr.Length; i++)
+                {
+                    if(tempArr[i] != '0')
+                    {
+                        isNumber = true;
+                    }
+
+                    num += tempArr[i].ToString();
+                }
+
+                if(isNumber)
+                {
+                    permList.Add(num.TrimStart(new char[] { '0' }));
+                }
             }
             else
             {
-                for (int i = k; i < a.Length; i++)
+                for (int i = 0; i < inputDataArr.Length; i++)
                 {
-                    //a[k]와 a[i]를 교환
-                    char temp = a[k];
-                    a[k] = a[i];
-                    a[i] = temp;
-
-                    Perm(a, k + 1); //a[k+1],…,a[n-1]에 대한 모든 순열
-                                    //원래 상태로 되돌리기 위해 a[k]와 a[i]를 다시 교환
-                    temp = a[k];
-                    a[k] = a[i];
-                    a[i] = temp;
+                    if (!visited[i])
+                    {
+                        visited[i] = true;
+                        tempArr[current] = inputDataArr[i];
+                        CreatePermutation(pickCount, tempArr, current + 1, visited);
+                        visited[i] = false;
+                    }
                 }
             }
         }
-        //private Dictionary<string, bool> primeNumberDict = new Dictionary<string, bool>();
-        //private int primeNumberCount = 0;
 
-        //public FindPrimeNumber()
-        //{
-        //    Console.WriteLine("\nBruteForce_FindPrimeNumber\n");
+        private bool IsPrimeNumber(string strNumber)
+        {
+            int number = int.Parse(strNumber);
+            int count = number / 2;
 
-        //    List<string> defalutInputList = new List<string>();
+            if (number == 2)
+            {
+                //Console.WriteLine(number);
+                return true;
+            }
 
-        //    defalutInputList.Add("17");
-        //    defalutInputList.Add("011");
-        //    defalutInputList.Add("4011");
-        //    defalutInputList.Add("3581");
+            if (number < 2 || number % 2 == 0)
+            {
+                return false;
+            }
 
-        //}
+            for (int i = 2; i < count; i++)
+            {
+                if (number % i == 0)
+                {
+                    return false;
+                }
+            }
 
-        //public int Solution(string number)
-        //{
-        //    primeNumberCount = 0;
+            //Console.WriteLine(number);
+            return true;
+        }
 
-        //    for (int i = 0; i < number.Length; i++)
-        //    {
-        //        char[] numberArr = number.Remove(i).ToCharArray();
+        private bool IsPrimeNumber(int number)
+        {
+            int count = number / 2;
 
-        //        Perm(numberArr, 0);
-        //    }
+            if (number == 2)
+            {
+                //Console.WriteLine(number);
+                return true;
+            }
 
-        //    return primeNumberCount;
-        //}
+            if (number < 2 || number % 2 == 0)
+            {
+                return false;
+            }
 
-        //private void Perm(char[] arr, int index)
-        //{
-        //    if (index == arr.Length - 1)//순열을 출력
-        //    {
-        //        for (int i = 0; i < arr.Length; i++)
-        //        {
-        //            Console.WriteLine(arr[i]);
-        //        }
+            for (int i = 2; i < count; i++)
+            {
+                if (number % i == 0)
+                {
+                    return false;
+                }
 
-        //        Console.WriteLine("\n");
+            }
 
-        //        string curNumber = arr.ToString().TrimStart(new char[] { '0' });
-
-        //        if(!primeNumberDict.ContainsKey(curNumber))
-        //        {
-        //            primeNumberDict[curNumber] = IsPrimeNumber(curNumber);
-
-        //            if(primeNumberDict[curNumber])
-        //            {
-        //                primeNumberCount++;
-        //            }
-        //        }
-        //    }
-        //    else
-
-        //    {
-        //        for (int i = index; i < arr.Length; i++)
-        //        {
-        //            Swap(arr, index, i);
-
-        //            Perm(arr, index + 1);
-
-        //            Swap(arr, index, i);
-        //        }
-        //    }
-        //}
-
-        //private void Swap(char[] arr, int startIndex, int endIndex)
-        //{
-        //    char temp = arr[startIndex];
-
-        //    arr[startIndex] = arr[endIndex];
-        //    arr[endIndex] = temp;
-        //}
-
-        //private bool IsPrimeNumber(string strNumber)
-        //{
-        //    int number = int.Parse(strNumber);
-        //    int count = number / 2;
-
-        //    if (number == 2)
-        //    {
-        //        Console.WriteLine(number);
-        //        return true;
-        //    }
-
-        //    if (number < 2 || number % 2 == 0)
-        //    {
-        //        return false;
-        //    }
-
-        //    for (int i = 2; i < count; i++)
-        //    {
-        //        if(number % i == 0)
-        //        {
-        //            return false;
-        //        }
-
-        //    }
-
-        //    Console.WriteLine(number);
-        //    return true;
-        //}
+            //Console.WriteLine(number);
+            return true;
+        }
     }
 }
