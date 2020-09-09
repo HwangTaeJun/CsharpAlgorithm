@@ -10,7 +10,6 @@ namespace CsharpAlgorithm.Source
     {
         private int[] inputDataArr = null;
         public List<int> resultList = new List<int>();
-        public int playCount = 0;
 
         public NumberCase(int[] inputDataArr)
         {
@@ -36,8 +35,6 @@ namespace CsharpAlgorithm.Source
                     CreateCombination(pickCount, tempArr, current + 1, i + 1);
                 }
             }
-
-            Console.WriteLine("끝!");
         }
 
         public void CreateRepeatedCombination(int pickCount, int[] tempArr, int current, int start)
@@ -63,8 +60,6 @@ namespace CsharpAlgorithm.Source
 
         public void CreatePermutation(int pickCount, int[] tempArr, int current, bool[] visited)
         {
-            playCount++;
-
             if (pickCount == current)
             {
                 string num = null;
