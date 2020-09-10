@@ -9,10 +9,10 @@ namespace CsharpAlgorithm.Source
         public int index;
         public int distance;
 
-        public Vertex(int i, int d)
+        public Vertex(int index, int distance)
         {
-            this.index = i;
-            this.distance = d;
+            this.index = index;
+            this.distance = distance;
         }
 
         public int CompareTo(Vertex target)
@@ -33,6 +33,9 @@ namespace CsharpAlgorithm.Source
         }
     }
 
+    /// <summary>
+    /// 최단경로 https://www.acmicpc.net/problem/1753
+    /// </summary>
     class ShortestRoute
     {
         private List<Edge>[] edgeArr = null;

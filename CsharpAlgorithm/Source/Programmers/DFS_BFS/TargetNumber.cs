@@ -18,6 +18,9 @@ namespace CsharpAlgorithm.Source
         }
     }
 
+    /// <summary>
+    /// 타겟 넘버 https://programmers.co.kr/learn/courses/30/lessons/43165
+    /// </summary>
     class TargetNumber
     {
         private int[] inputDataArr = null;

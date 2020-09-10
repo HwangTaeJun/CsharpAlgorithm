@@ -54,6 +54,7 @@
     <Compile Include="Source\Programmers\BruteForce\MockTest.cs" />
     <Compile Include="Source\Programmers\DFS_BFS\TargetNumber.cs" />
     <Compile Include="Source\Programmers\DynamicProgramming\FindPrimeNumber.cs" />
+    <Compile Include="Source\Programmers\Graph\FarthestRoute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

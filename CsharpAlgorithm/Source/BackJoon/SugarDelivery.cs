@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CsharpAlgorithm.Source
 {
     /// <summary>
-    /// 문제 링크 https://www.acmicpc.net/problem/2839
+    /// 설탕 배달 https://www.acmicpc.net/problem/2839
     /// </summary>
     class SugarDelivery
     {

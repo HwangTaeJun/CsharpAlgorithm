@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CsharpAlgorithm.Source
 {
     /// <summary>
-    /// 문제 링크 https://algospot.com/judge/problem/read/PICNIC
+    /// 소풍 https://algospot.com/judge/problem/read/PICNIC
     /// </summary>
     class Picnic
     {
