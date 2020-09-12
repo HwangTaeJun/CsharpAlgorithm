@@ -53,8 +53,10 @@
     <Compile Include="Source\Others\PriorityQueue.cs" />
     <Compile Include="Source\Programmers\BruteForce\MockTest.cs" />
     <Compile Include="Source\Programmers\DFS_BFS\TargetNumber.cs" />
+    <Compile Include="Source\Programmers\DFS_BFS\WordConversion.cs" />
     <Compile Include="Source\Programmers\DynamicProgramming\FindPrimeNumber.cs" />
     <Compile Include="Source\Programmers\Graph\FarthestRoute.cs" />
+    <Compile Include="Source\Programmers\Graph\ShortestMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -63,6 +65,7 @@
   <ItemGroup>
     <Content Include="bin\Debug\CsharpAlgorithm.exe" />
     <Content Include="bin\Debug\CsharpAlgorithm.pdb" />
+    <Content Include="ReferenceSite.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
