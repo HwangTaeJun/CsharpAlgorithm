@@ -51,6 +51,10 @@
     <Compile Include="Source\NYPC\2019\MabinogiInventory.cs" />
     <Compile Include="Source\Others\NumberCase.cs" />
     <Compile Include="Source\Others\PriorityQueue.cs" />
+    <Compile Include="Source\Others\String\FindNonRepeatedChar.cs" />
+    <Compile Include="Source\Others\String\NumberWordConversion.cs" />
+    <Compile Include="Source\Others\String\RemoveSpecificChar.cs" />
+    <Compile Include="Source\Others\String\ReverseWord.cs" />
     <Compile Include="Source\Programmers\BruteForce\MockTest.cs" />
     <Compile Include="Source\Programmers\DFS_BFS\TargetNumber.cs" />
     <Compile Include="Source\Programmers\DFS_BFS\WordConversion.cs" />
