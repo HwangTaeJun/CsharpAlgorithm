@@ -137,7 +137,14 @@ public class Program
     static void Main(string[] args)
     {
         //Example();
-        ShortestMap shortestMap = new ShortestMap();
+        //ShortestMap shortestMap = new ShortestMap();
+
+        //FindNonRepeatedChar findNonRepeatedChar = new FindNonRepeatedChar();
+        //RemoveSpecificChar removeSpecificChar = new RemoveSpecificChar();
+
+        //ReverseWord reverseWord = new ReverseWord();
+        NumberWordConversion numberWordConversion = new NumberWordConversion();
+
         System.Console.ReadLine();
     }
 
