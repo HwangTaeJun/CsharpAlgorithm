@@ -12,7 +12,7 @@ namespace CsharpAlgorithm.Source
         public int data = 0;
     }
 
-    class LinkedListExp
+    class LinkedList
     {
         Node head = null;
 
