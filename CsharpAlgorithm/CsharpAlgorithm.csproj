@@ -49,7 +49,8 @@
     <Compile Include="Source\BackJoon\ShortestRoute.cs" />
     <Compile Include="Source\BackJoon\SugarDelivery.cs" />
     <Compile Include="Source\NYPC\2019\MabinogiInventory.cs" />
-    <Compile Include="Source\Others\LinkedList.cs" />
+    <Compile Include="Source\Others\MyHashTable.cs" />
+    <Compile Include="Source\Others\MyLinkedList.cs" />
     <Compile Include="Source\Others\NumberCase.cs" />
     <Compile Include="Source\Others\PriorityQueue.cs" />
     <Compile Include="Source\Others\String\FindNonRepeatedChar.cs" />

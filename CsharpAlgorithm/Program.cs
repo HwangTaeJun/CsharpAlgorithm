@@ -2,21 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using CsharpAlgorithm.Source;
 
 public class Program
 {
     static void Main(string[] args)
     {
-        LinkedList linkedList = new LinkedList();
+        MySingleLinkedList<int> mySingleLinkedList = new MySingleLinkedList<int>();
 
-        linkedList.AppendNode(2);
-        linkedList.AppendNode(92);
-        linkedList.AppendNode(11);
-        linkedList.AppendNode(4);
-        linkedList.AppendNode(5);
+        for (int i = 0; i < 10; i++)
+        {
+            if(i <= 5)
+            {
+                mySingleLinkedList.AddLast(i);
+            }
+            else
+            {
+                mySingleLinkedList.AddFirst(i);
+            }
+        }
 
         System.Console.ReadLine();
     }
 }
-
