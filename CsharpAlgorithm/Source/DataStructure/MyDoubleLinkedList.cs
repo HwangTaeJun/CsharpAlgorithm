@@ -8,22 +8,21 @@ namespace CsharpAlgorithm.Source
 {
     class DoubleNode<T>
     {
-        public DoubleNode<T> prev;
-        public DoubleNode<T> next;
+        public DoubleNode<T> prev = null;
+        public DoubleNode<T> next = null;
 
         public T data;
 
         public DoubleNode(T data)
         {
             this.data = data;
-
-            next = null;
         }
     }
 
     class MyDoubleLinkedList<T>
     {
-        private DoubleNode<T> head;
+        private DoubleNode<T> head = null;
+        private DoubleNode<T> tail = null;
 
         public int Count { get; private set; } = 0;
 
@@ -34,6 +33,7 @@ namespace CsharpAlgorithm.Source
             if (head == null)
             {
                 head = newNode;
+                tail = newNode;
             }
             else
             {
@@ -52,6 +52,7 @@ namespace CsharpAlgorithm.Source
             if (head == null)
             {
                 head = newNode;
+                tail = newNode;
             }
             else
             {
@@ -64,6 +65,7 @@ namespace CsharpAlgorithm.Source
 
                 newNode.prev = curNode;
                 curNode.next = newNode;
+                tail = newNode;
             }
 
             Count++;
