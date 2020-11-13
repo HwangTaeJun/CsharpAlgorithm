@@ -37,7 +37,7 @@ namespace CsharpAlgorithm.Source
         {
             Node<T> newNode = new Node<T>(data);
 
-            if(head == null)
+            if (head == null)
             {
                 head = newNode;
             }
@@ -64,15 +64,19 @@ namespace CsharpAlgorithm.Source
             }
             else
             {
-                //head밖에 없을 때
-                if(Count == 1)
+                //head 처리
+                if (head.data.Equals(data))
                 {
-                    if(head.data.Equals(data))
+                    if (Count == 1)
                     {
                         head = null;
-                        Count--;
+                    }
+                    else
+                    {
+                        head = head.next;
                     }
 
+                    Count--;
                     return;
                 }
 
@@ -81,18 +85,10 @@ namespace CsharpAlgorithm.Source
 
                 while (curNode.next != null)
                 {
-                    if(curNode.data.Equals(data))
+                    if (curNode.data.Equals(data))
                     {
-                        //head를 제거 할 때
-                        if (prevNode == null)
-                        {
-                            head = head.next;
-                        }
-                        else
-                        {
-                            prevNode.next = curNode.next;
-                            curNode = null;
-                        }
+                        prevNode.next = curNode.next;
+                        curNode = null;
 
                         Count--;
                         return;
@@ -106,7 +102,7 @@ namespace CsharpAlgorithm.Source
 
         public void RemoveFirst()
         {
-            if(head == null)
+            if (head == null)
             {
                 return;
             }
@@ -118,7 +114,7 @@ namespace CsharpAlgorithm.Source
 
         public void RemoveLast()
         {
-            if(head == null)
+            if (head == null)
             {
                 return;
             }
@@ -152,7 +148,7 @@ namespace CsharpAlgorithm.Source
 
             while (curNode != null)
             {
-                if(curNode.data.Equals(data))
+                if (curNode.data.Equals(data))
                 {
                     return curNode;
                 }
