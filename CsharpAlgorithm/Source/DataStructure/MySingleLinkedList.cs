@@ -83,7 +83,7 @@ namespace CsharpAlgorithm.Source
                 Node<T> curNode = head;
                 Node<T> prevNode = null;
 
-                while (curNode.next != null)
+                while (curNode != null)
                 {
                     if (curNode.data.Equals(data))
                     {
