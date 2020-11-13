@@ -127,6 +127,47 @@ namespace CsharpAlgorithm.Source
             }
         }
 
+        public void RemoveFirst()
+        {
+            if(head == null)
+            {
+                Console.WriteLine("데이터가 없습니다.");
+            }
+            else
+            {
+                head = head.next;
+
+                if(head == null)
+                {
+                    tail = null;
+                }
+
+                Count--;
+            }
+        }
+
+        public void RemoveLast()
+        {
+            if (head == null)
+            {
+                Console.WriteLine("데이터가 없습니다.");
+            }
+            else
+            {
+                if(Count == 1)
+                {
+                    InitNodes(null);
+                }
+                else
+                {
+                    tail = tail.prev;
+                    tail.next = null;
+                }
+
+                Count--;
+            }
+        }
+
         private void InitNodes(DoubleNode<T> node)
         {
             head = node;

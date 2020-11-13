@@ -21,8 +21,7 @@ public class Program
 
         for (int i = 0; i < 5; i++)
         {
-            myDoubleLinkedList.Remove(i);
-            mySingleLinkedList.Remove(i.ToString());
+            myDoubleLinkedList.RemoveLast();
         }
 
         System.Console.ReadLine();
