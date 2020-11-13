@@ -10,28 +10,15 @@ public class Program
 {
     static void Main(string[] args)
     {
-        MySingleLinkedList<int> mySingleLinkedList = new MySingleLinkedList<int>();
+        MyDoubleLinkedList<int> myDoubleLinkedList = new MyDoubleLinkedList<int>();
 
-        mySingleLinkedList.AddLast(1);
-        mySingleLinkedList.AddLast(2);
-        mySingleLinkedList.AddLast(3);
+        myDoubleLinkedList.AddLast(1);
+        myDoubleLinkedList.AddLast(2);
+        myDoubleLinkedList.AddLast(3);
 
-        var data = mySingleLinkedList.Find(3);
-        data = mySingleLinkedList.Find(5);
 
-        mySingleLinkedList.Remove(2);
-        mySingleLinkedList.Remove(1);
-        mySingleLinkedList.Remove(3);
-
-        mySingleLinkedList.AddFirst(1);
-        mySingleLinkedList.AddFirst(2);
-        mySingleLinkedList.RemoveLast();
-        mySingleLinkedList.RemoveLast();
-
-        mySingleLinkedList.AddLast(1);
-        mySingleLinkedList.AddLast(2);
-        mySingleLinkedList.RemoveFirst();
-        mySingleLinkedList.RemoveFirst();
+        myDoubleLinkedList.AddFirst(4);
+        myDoubleLinkedList.AddFirst(5);
 
         System.Console.ReadLine();
     }

@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CsharpAlgorithm.Source.Others
+namespace CsharpAlgorithm.Source
 {
-    class Node<T>
+    class DoubleNode<T>
     {
-        public T data;
-        public Node<T> prev;
-        public Node<T> next;
+        public DoubleNode<T> prev;
+        public DoubleNode<T> next;
 
-        public Node(T data)
+        public T data;
+
+        public DoubleNode(T data)
         {
             this.data = data;
 
@@ -22,22 +23,50 @@ namespace CsharpAlgorithm.Source.Others
 
     class MyDoubleLinkedList<T>
     {
-        private Node<T> head;
+        private DoubleNode<T> head;
 
         public int Count { get; private set; } = 0;
 
-        public void Add(T data)
+        public void AddFirst(T data)
         {
-            Node<T> newNode = new Node<T>(data);
+            DoubleNode<T> newNode = new DoubleNode<T>(data);
 
             if (head == null)
             {
                 head = newNode;
-                head.prev = null;
             }
             else
             {
+                head.prev = newNode;
+                newNode.next = head;
+                head = newNode;
             }
+
+            Count++;
+        }
+
+        public void AddLast(T data)
+        {
+            DoubleNode<T> newNode = new DoubleNode<T>(data);
+
+            if (head == null)
+            {
+                head = newNode;
+            }
+            else
+            {
+                DoubleNode<T> curNode = head;
+
+                while (curNode.next != null)
+                {
+                    curNode = curNode.next;
+                }
+
+                newNode.prev = curNode;
+                curNode.next = newNode;
+            }
+
+            Count++;
         }
     }
 }
