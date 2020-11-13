@@ -64,12 +64,12 @@ namespace CsharpAlgorithm.Source
             }
             else
             {
+                //head밖에 없을 때
                 if(Count == 1)
                 {
                     if(head.data.Equals(data))
                     {
                         head = null;
-
                         Count--;
                     }
 
@@ -83,6 +83,7 @@ namespace CsharpAlgorithm.Source
                 {
                     if(curNode.data.Equals(data))
                     {
+                        //head를 제거 할 때
                         if (prevNode == null)
                         {
                             head = head.next;
@@ -94,7 +95,6 @@ namespace CsharpAlgorithm.Source
                         }
 
                         Count--;
-
                         return;
                     }
 
@@ -133,7 +133,7 @@ namespace CsharpAlgorithm.Source
                     curNode = curNode.next;
                 }
 
-                if(prevNode == null)
+                if (prevNode == null)
                 {
                     head = null;
                 }
