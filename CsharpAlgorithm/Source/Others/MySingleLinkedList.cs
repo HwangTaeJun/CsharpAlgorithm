@@ -55,5 +55,114 @@ namespace CsharpAlgorithm.Source
 
             Count++;
         }
+
+        public void Remove(T data)
+        {
+            if (head == null)
+            {
+                return;
+            }
+            else
+            {
+                if(Count == 1)
+                {
+                    if(head.data.Equals(data))
+                    {
+                        head = null;
+
+                        Count--;
+                    }
+
+                    return;
+                }
+
+                Node<T> curNode = head;
+                Node<T> prevNode = null;
+
+                while (curNode.next != null)
+                {
+                    if(curNode.data.Equals(data))
+                    {
+                        if (prevNode == null)
+                        {
+                            head = head.next;
+                        }
+                        else
+                        {
+                            prevNode.next = curNode.next;
+                            curNode = null;
+                        }
+
+                        Count--;
+
+                        return;
+                    }
+
+                    prevNode = curNode;
+                    curNode = curNode.next;
+                }
+            }
+        }
+
+        public void RemoveFirst()
+        {
+            if(head == null)
+            {
+                return;
+            }
+
+            head = head.next;
+
+            Count--;
+        }
+
+        public void RemoveLast()
+        {
+            if(head == null)
+            {
+                return;
+            }
+            else
+            {
+                Node<T> curNode = head;
+                Node<T> prevNode = null;
+
+                while (curNode.next != null)
+                {
+                    prevNode = curNode;
+                    curNode = curNode.next;
+                }
+
+                if(prevNode == null)
+                {
+                    head = null;
+                }
+                else
+                {
+                    prevNode.next = null;
+                }
+
+                Count--;
+            }
+        }
+
+        public Node<T> Find(T data)
+        {
+            Node<T> curNode = head;
+
+            while (curNode != null)
+            {
+                if(curNode.data.Equals(data))
+                {
+                    return curNode;
+                }
+
+                curNode = curNode.next;
+            }
+
+            Console.WriteLine("일치하는 데이터를 찾을 수 없습니다.");
+
+            return null;
+        }
     }
 }

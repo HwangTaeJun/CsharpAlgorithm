@@ -12,17 +12,26 @@ public class Program
     {
         MySingleLinkedList<int> mySingleLinkedList = new MySingleLinkedList<int>();
 
-        for (int i = 0; i < 10; i++)
-        {
-            if(i <= 5)
-            {
-                mySingleLinkedList.AddLast(i);
-            }
-            else
-            {
-                mySingleLinkedList.AddFirst(i);
-            }
-        }
+        mySingleLinkedList.AddLast(1);
+        mySingleLinkedList.AddLast(2);
+        mySingleLinkedList.AddLast(3);
+
+        var data = mySingleLinkedList.Find(3);
+        data = mySingleLinkedList.Find(5);
+
+        mySingleLinkedList.Remove(2);
+        mySingleLinkedList.Remove(1);
+        mySingleLinkedList.Remove(3);
+
+        mySingleLinkedList.AddFirst(1);
+        mySingleLinkedList.AddFirst(2);
+        mySingleLinkedList.RemoveLast();
+        mySingleLinkedList.RemoveLast();
+
+        mySingleLinkedList.AddLast(1);
+        mySingleLinkedList.AddLast(2);
+        mySingleLinkedList.RemoveFirst();
+        mySingleLinkedList.RemoveFirst();
 
         System.Console.ReadLine();
     }
