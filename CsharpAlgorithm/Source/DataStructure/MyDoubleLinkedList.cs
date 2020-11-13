@@ -51,8 +51,7 @@ namespace CsharpAlgorithm.Source
 
             if (head == null)
             {
-                head = newNode;
-                tail = newNode;
+                InitNodes(newNode);
             }
             else
             {
@@ -69,6 +68,69 @@ namespace CsharpAlgorithm.Source
             }
 
             Count++;
+        }
+
+        public void Remove(T data)
+        {
+            if(head == null)
+            {
+                Console.WriteLine("데이터가 존재하지 않습니다.");
+                return;
+            }
+            else
+            {
+                //head 처리
+                if (head.data.Equals(data))
+                {
+                    if (Count == 1)
+                    {
+                        InitNodes(null);
+                    }
+                    else
+                    {
+                        head = head.next;
+                    }
+
+                    Count--;
+                    return;
+                }
+                else
+                {
+                    DoubleNode<T> curNode = head;
+
+                    while (curNode != null)
+                    {
+                        if(curNode.data.Equals(data))
+                        {
+                            if(curNode == tail)
+                            {
+                                tail = tail.prev;
+                                tail.next = null;
+                            }
+                            else
+                            {
+                                curNode.next.prev = curNode.prev;
+                                curNode.prev.next = curNode.next;
+                            }
+
+                            curNode = null;
+
+                            Count--;
+                            return;
+                        }
+                        else
+                        {
+                            curNode = curNode.next;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void InitNodes(DoubleNode<T> node)
+        {
+            head = node;
+            tail = node;
         }
     }
 }
