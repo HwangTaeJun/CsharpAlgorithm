@@ -160,5 +160,28 @@ namespace CsharpAlgorithm.Source
 
             return null;
         }
+
+        public void Reverse()
+        {
+            if (Count < 2)
+            {
+                return;
+            }
+
+            Node<T> curNode = head;
+
+            Node<T> tempNode = null;
+            Node<T> prevNode = null;
+
+            while (curNode != null)
+            {
+                tempNode = curNode.next;
+                curNode.next = prevNode;
+                prevNode = curNode;
+                curNode = tempNode;
+            }
+
+            head = prevNode;
+        }
     }
 }

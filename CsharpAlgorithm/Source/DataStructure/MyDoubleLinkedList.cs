@@ -72,7 +72,7 @@ namespace CsharpAlgorithm.Source
 
         public void Remove(T data)
         {
-            if(head == null)
+            if (head == null)
             {
                 Console.WriteLine("데이터가 존재하지 않습니다.");
                 return;
@@ -88,6 +88,7 @@ namespace CsharpAlgorithm.Source
                     }
                     else
                     {
+                        head.next.prev = null;
                         head = head.next;
                     }
 
@@ -100,9 +101,9 @@ namespace CsharpAlgorithm.Source
 
                     while (curNode != null)
                     {
-                        if(curNode.data.Equals(data))
+                        if (curNode.data.Equals(data))
                         {
-                            if(curNode == tail)
+                            if (curNode == tail)
                             {
                                 tail = tail.prev;
                                 tail.next = null;
@@ -129,7 +130,7 @@ namespace CsharpAlgorithm.Source
 
         public void RemoveFirst()
         {
-            if(head == null)
+            if (head == null)
             {
                 Console.WriteLine("데이터가 없습니다.");
             }
@@ -137,7 +138,7 @@ namespace CsharpAlgorithm.Source
             {
                 head = head.next;
 
-                if(head == null)
+                if (head == null)
                 {
                     tail = null;
                 }
@@ -154,7 +155,7 @@ namespace CsharpAlgorithm.Source
             }
             else
             {
-                if(Count == 1)
+                if (Count == 1)
                 {
                     InitNodes(null);
                 }
@@ -166,6 +167,37 @@ namespace CsharpAlgorithm.Source
 
                 Count--;
             }
+        }
+
+        public void Reverse()
+        {
+            if (Count < 2)
+            {
+                return;
+            }
+
+            DoubleNode<T> curNode = head;
+
+            DoubleNode<T> prevNode = null;
+            DoubleNode<T> tempNode = null;
+
+            for (int i = 0; i < Count; i++)
+            {
+                if (i == 0)
+                {
+                    tail = curNode;
+                }
+
+                tempNode = curNode.next;
+
+                curNode.next = curNode.prev;
+                curNode.prev = tempNode;
+
+                prevNode = curNode;
+                curNode = tempNode;
+            }
+
+            head = prevNode;
         }
 
         private void InitNodes(DoubleNode<T> node)

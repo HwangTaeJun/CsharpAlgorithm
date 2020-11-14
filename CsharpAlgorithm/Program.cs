@@ -11,18 +11,16 @@ public class Program
     static void Main(string[] args)
     {
         MyDoubleLinkedList<int> myDoubleLinkedList = new MyDoubleLinkedList<int>();
-        MySingleLinkedList<string> mySingleLinkedList = new MySingleLinkedList<string>();
+        MySingleLinkedList<int> mySingleLinkedList = new MySingleLinkedList<int>();
 
         for (int i = 0; i < 5; i++)
         {
             myDoubleLinkedList.AddLast(i);
-            mySingleLinkedList.AddLast(i.ToString());
+            mySingleLinkedList.AddLast(i);
         }
 
-        for (int i = 0; i < 5; i++)
-        {
-            myDoubleLinkedList.RemoveLast();
-        }
+        myDoubleLinkedList.Reverse();
+        mySingleLinkedList.Reverse();
 
         System.Console.ReadLine();
     }
