@@ -10,23 +10,13 @@ public class Program
 {
     static void Main(string[] args)
     {
-        MyStack<int> myStack = new MyStack<int>();
+        MyHashTable<string, int> myHashTable = new MyHashTable<string, int>();
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 1024; i++)
         {
-            myStack.Push(i);
+            myHashTable.Add(i.ToString(), i);
         }
 
-        Console.WriteLine(myStack.Pop());
-        Console.WriteLine(myStack.Peek());
-        Console.WriteLine(myStack.Pop());
-        Console.WriteLine(myStack.Peek());
-
-        for (int i = 0; i < 5; i++)
-        {
-            myStack.Push((i + 1)*10);
-        }
-
-        System.Console.ReadLine();
+        Console.ReadLine();
     }
 }
