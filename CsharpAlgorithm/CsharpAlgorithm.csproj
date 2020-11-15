@@ -50,6 +50,7 @@
     <Compile Include="Source\BackJoon\SugarDelivery.cs" />
     <Compile Include="Source\DataStructure\MyDoubleLinkedList.cs" />
     <Compile Include="Source\DataStructure\MyHashTable.cs" />
+    <Compile Include="Source\DataStructure\MyQueue.cs" />
     <Compile Include="Source\DataStructure\MySingleLinkedList.cs" />
     <Compile Include="Source\DataStructure\PriorityQueue.cs" />
     <Compile Include="Source\NYPC\2019\MabinogiInventory.cs" />
