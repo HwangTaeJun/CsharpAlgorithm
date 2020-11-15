@@ -10,12 +10,10 @@ namespace CsharpAlgorithm.Source
     {
         private T[] dataArr = null;
 
-        private T frontData;
-
         private int front = -1;
         private int rear = -1;
 
-        private int capacity = 3;
+        private int capacity = 5;
 
         public int Count { get; private set; } = 0;
 
@@ -26,14 +24,9 @@ namespace CsharpAlgorithm.Source
 
         public void Enqueue(T data)
         {
-            if(IsFull())
+            if (IsFull())
             {
                 Resize();
-            }
-
-            if(front == rear)
-            {
-                frontData = data;
             }
 
             rear = (rear + 1) % capacity;
@@ -44,7 +37,7 @@ namespace CsharpAlgorithm.Source
 
         public T Dequeue()
         {
-            if(IsEmpty())
+            if (IsEmpty())
             {
                 throw new Exception("Empty");
             }
@@ -52,27 +45,24 @@ namespace CsharpAlgorithm.Source
             front = (front + 1) % capacity;
             Count--;
 
-            if (!IsEmpty())
-            {
-                frontData = dataArr[front + 1];
-            }
-
             return dataArr[front];
         }
 
         public T Peek()
         {
-            if(IsEmpty())
+            if (IsEmpty())
             {
                 throw new Exception("Empty");
             }
-
-            return frontData;
+            else
+            {
+                return dataArr[front + 1];
+            }
         }
 
         private bool IsFull()
         {
-            if(front == rear + 1 || capacity <= Count)
+            if ((Count > 0 && front == rear) || capacity <= Count)
             {
                 return true;
             }
@@ -82,10 +72,8 @@ namespace CsharpAlgorithm.Source
 
         private bool IsEmpty()
         {
-            if(rear == front)
+            if (Count == 0)
             {
-                frontData = default(T);
-
                 return true;
             }
 
@@ -94,11 +82,18 @@ namespace CsharpAlgorithm.Source
 
         private void Resize()
         {
+            T[] newDataArr = new T[capacity * 2];
+
+            for (int i = 0; i < capacity; i++)
+            {
+                int index = (rear + 1 + i) % capacity;
+
+                newDataArr[i] = dataArr[index];
+            }
+
+            rear = Count - 1;
+            front = -1;
             capacity *= 2;
-
-            T[] newDataArr = new T[capacity];
-
-            dataArr.CopyTo(newDataArr, 0);
             dataArr = newDataArr;
         }
     }
