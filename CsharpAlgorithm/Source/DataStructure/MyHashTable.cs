@@ -75,6 +75,47 @@ namespace CsharpAlgorithm.Source
             Count++;
         }
 
+        public void Remove(T key)
+        {
+            int index = GetHashIndex(key);
+
+            HashNode<T, T2> curNode = bucketArr[index];
+
+            if (curNode == null)
+            {
+                throw new Exception("해당하는 키에 대한 데이터가 없습니다.");
+            }
+            else
+            {
+                if(curNode.key.Equals(key))
+                {
+                    bucketArr[index] = bucketArr[index].next;
+
+                    Count--;
+                }
+                else
+                {
+                    HashNode<T, T2> prevNode = null;
+
+                    while (curNode != null)
+                    {
+                        if (curNode.key.Equals(key))
+                        {
+                            prevNode.next = curNode.next;
+                            Count--;
+
+                            return;
+                        }
+                        else
+                        {
+                            prevNode = curNode;
+                            curNode = curNode.next;
+                        }
+                    }
+                }
+            }
+        }
+
         public bool IsContainsKey(T key)
         {
             int index = GetHashIndex(key);
@@ -89,6 +130,26 @@ namespace CsharpAlgorithm.Source
                 }
 
                 curNode = curNode.next;
+            }
+
+            return false;
+        }
+
+        public bool IsContainsValue(T2 value)
+        {
+            for (int i = 0; i < capacity; i++)
+            {
+                HashNode<T, T2> curNode = bucketArr[i];
+
+                while (curNode != null)
+                {
+                    if (curNode.value.Equals(value))
+                    {
+                        return true;
+                    }
+
+                    curNode = curNode.next;
+                }
             }
 
             return false;
@@ -111,6 +172,11 @@ namespace CsharpAlgorithm.Source
 
         private void Resize()
         {
+            if(capacity >= primeNumberArr[primeNumberArr.Length -1])
+            {
+                return;
+            }
+
             for (int i = 0; i < primeNumberArr.Length; i++)
             {
                 if((capacity * 2) <= primeNumberArr[i])
