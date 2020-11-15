@@ -52,6 +52,7 @@
     <Compile Include="Source\DataStructure\MyHashTable.cs" />
     <Compile Include="Source\DataStructure\MyQueue.cs" />
     <Compile Include="Source\DataStructure\MySingleLinkedList.cs" />
+    <Compile Include="Source\DataStructure\MyStack.cs" />
     <Compile Include="Source\DataStructure\PriorityQueue.cs" />
     <Compile Include="Source\NYPC\2019\MabinogiInventory.cs" />
     <Compile Include="Source\Others\NumberCase.cs" />
