@@ -45,27 +45,28 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\Algospot\Picnic.cs" />
-    <Compile Include="Source\BackJoon\ShortestRoute.cs" />
-    <Compile Include="Source\BackJoon\SugarDelivery.cs" />
+    <Compile Include="Source\Algorithm\Algospot\Picnic.cs" />
+    <Compile Include="Source\Algorithm\BackJoon\ShortestRoute.cs" />
+    <Compile Include="Source\Algorithm\BackJoon\SugarDelivery.cs" />
     <Compile Include="Source\DataStructure\MyDoubleLinkedList.cs" />
     <Compile Include="Source\DataStructure\MyHashTable.cs" />
+    <Compile Include="Source\DataStructure\MyPriorityQueue.cs" />
     <Compile Include="Source\DataStructure\MyQueue.cs" />
     <Compile Include="Source\DataStructure\MySingleLinkedList.cs" />
     <Compile Include="Source\DataStructure\MyStack.cs" />
     <Compile Include="Source\DataStructure\PriorityQueue.cs" />
-    <Compile Include="Source\NYPC\2019\MabinogiInventory.cs" />
-    <Compile Include="Source\Others\NumberCase.cs" />
-    <Compile Include="Source\Others\String\FindNonRepeatedChar.cs" />
-    <Compile Include="Source\Others\String\NumberWordConversion.cs" />
-    <Compile Include="Source\Others\String\RemoveSpecificChar.cs" />
-    <Compile Include="Source\Others\String\ReverseWord.cs" />
-    <Compile Include="Source\Programmers\BruteForce\MockTest.cs" />
-    <Compile Include="Source\Programmers\DFS_BFS\TargetNumber.cs" />
-    <Compile Include="Source\Programmers\DFS_BFS\WordConversion.cs" />
-    <Compile Include="Source\Programmers\DynamicProgramming\FindPrimeNumber.cs" />
-    <Compile Include="Source\Programmers\Graph\FarthestRoute.cs" />
-    <Compile Include="Source\Programmers\Graph\ShortestMap.cs" />
+    <Compile Include="Source\Algorithm\NYPC\2019\MabinogiInventory.cs" />
+    <Compile Include="Source\Algorithm\Others\NumberCase.cs" />
+    <Compile Include="Source\Algorithm\Others\String\FindNonRepeatedChar.cs" />
+    <Compile Include="Source\Algorithm\Others\String\NumberWordConversion.cs" />
+    <Compile Include="Source\Algorithm\Others\String\RemoveSpecificChar.cs" />
+    <Compile Include="Source\Algorithm\Others\String\ReverseWord.cs" />
+    <Compile Include="Source\Algorithm\Programmers\BruteForce\MockTest.cs" />
+    <Compile Include="Source\Algorithm\Programmers\DFS_BFS\TargetNumber.cs" />
+    <Compile Include="Source\Algorithm\Programmers\DFS_BFS\WordConversion.cs" />
+    <Compile Include="Source\Algorithm\Programmers\DynamicProgramming\FindPrimeNumber.cs" />
+    <Compile Include="Source\Algorithm\Programmers\Graph\FarthestRoute.cs" />
+    <Compile Include="Source\Algorithm\Programmers\Graph\ShortestMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
