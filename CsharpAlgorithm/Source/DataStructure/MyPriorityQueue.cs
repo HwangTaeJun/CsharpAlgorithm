@@ -29,10 +29,10 @@ namespace CsharpAlgorithm.Source.DataStructure
 
         private int capacity = 100;
 
-        private int parentIndex = 0;
+        private int targetIndex = 0;
         private int currentIndex = 0;
 
-        private T parentData;
+        private T targetData;
         private T currentData;
 
         public int Count { get; private set; } = 0;
@@ -53,34 +53,31 @@ namespace CsharpAlgorithm.Source.DataStructure
 
             if (Count != 0)
             {
-                dataArr[Count] = data;
+                MoveUpNode(Count);
 
-                RefreshData(Count);
-
-                while(IsHighPriority(parentData, currentData))
+                while(IsHighCurrentNodePriority(targetData, currentData))
                 {
-                    Swap(parentIndex, currentIndex);
+                    Swap(targetIndex, currentIndex);
 
-                    RefreshData(parentIndex);
+                    MoveUpNode(targetIndex);
                 }
             }
 
             Count++;
         }
 
-        //data 수정이 이루어질 때 부모 자식의 index, data 값을 수정
-        private void RefreshData(int index)
+        private void MoveUpNode(int index)
         {
             currentIndex = index;
-            parentIndex = (currentIndex - 1) / 2;
+            targetIndex = (currentIndex - 1) / 2;
 
             currentData = dataArr[currentIndex];
-            parentData = dataArr[parentIndex];
+            targetData = dataArr[targetIndex];
         }
 
-        private bool IsHighPriority(T parent, T current)
+        private bool IsHighCurrentNodePriority(T target, T current)
         {
-            if (parent.CompareTo(current) < 0)
+            if (target.CompareTo(current) < 0)
             {
                 return true;
             }
