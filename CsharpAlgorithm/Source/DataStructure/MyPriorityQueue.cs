@@ -29,12 +29,6 @@ namespace CsharpAlgorithm.Source.DataStructure
 
         private int capacity = 100;
 
-        private int targetIndex = 0;
-        private int currentIndex = 0;
-
-        private T targetData;
-        private T currentData;
-
         public int Count { get; private set; } = 0;
 
         public MyPriorityQueue()
@@ -44,7 +38,7 @@ namespace CsharpAlgorithm.Source.DataStructure
 
         public void Enqueue(T data)
         {
-            if(capacity <= Count)
+            if (capacity <= Count)
             {
                 Resize();
             }
@@ -53,36 +47,19 @@ namespace CsharpAlgorithm.Source.DataStructure
 
             if (Count != 0)
             {
-                MoveUpNode(Count);
+                int currentNodeIndex = Count;
+                int parentIndex = (currentNodeIndex - 1) / 2;
 
-                while(IsHighCurrentNodePriority(targetData, currentData))
+                while (dataArr[parentIndex].CompareTo(dataArr[currentNodeIndex]) == 1)
                 {
-                    Swap(targetIndex, currentIndex);
+                    Swap(parentIndex, currentNodeIndex);
 
-                    MoveUpNode(targetIndex);
+                    currentNodeIndex = parentIndex;
+                    parentIndex = (currentNodeIndex - 1) / 2;
                 }
             }
 
             Count++;
-        }
-
-        private void MoveUpNode(int index)
-        {
-            currentIndex = index;
-            targetIndex = (currentIndex - 1) / 2;
-
-            currentData = dataArr[currentIndex];
-            targetData = dataArr[targetIndex];
-        }
-
-        private bool IsHighCurrentNodePriority(T target, T current)
-        {
-            if (target.CompareTo(current) < 0)
-            {
-                return true;
-            }
-
-            return false;
         }
 
         private void Swap(int parentIndex, int currentIndex)
