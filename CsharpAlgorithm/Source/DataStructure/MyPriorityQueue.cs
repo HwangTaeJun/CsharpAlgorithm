@@ -62,6 +62,62 @@ namespace CsharpAlgorithm.Source.DataStructure
             Count++;
         }
 
+        public T Dequeue()
+        {
+            if (Count == 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            else
+            {
+                T data = dataArr[0];
+
+                dataArr[0] = dataArr[Count - 1];
+                dataArr[Count - 1] = default(T);
+
+                if (Count > 1)
+                {
+                    int currentNodeIndex = 0;
+
+                    int childIndex = currentNodeIndex * 2 + 1;
+                    int lastIndex = Count - 2;
+
+                    //자식이 있는지 체크
+                    while (childIndex <= lastIndex)
+                    {
+                        int rightChildIndex = childIndex + 1;
+
+                        //자식 간 우선순위 비교
+                        if (rightChildIndex <= lastIndex && dataArr[childIndex].CompareTo(dataArr[rightChildIndex]) == 1)
+                        {
+                            childIndex = rightChildIndex;
+                        }
+
+                        //현재 노드와 우선순위가 높은 자식과 우선순위 비교
+                        if (dataArr[currentNodeIndex].CompareTo(dataArr[childIndex]) == 1)
+                        {
+                            Swap(childIndex, currentNodeIndex);
+
+                            currentNodeIndex = childIndex;
+                            childIndex = currentNodeIndex * 2 + 1;
+                        }
+                        else //현재 노드가 자식보다 우선순위가 높을 때
+                        {
+                            break;
+                        }
+                    }
+                }
+
+                Count--;
+                return data;
+            }
+        }
+
+        public T Peek()
+        {
+            return dataArr[0];
+        }
+
         private void Swap(int parentIndex, int currentIndex)
         {
             T temp = dataArr[parentIndex];
