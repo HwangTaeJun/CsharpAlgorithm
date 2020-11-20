@@ -36,6 +36,12 @@ namespace CsharpAlgorithm.Source.DataStructure
             dataArr = new T[capacity];
         }
 
+        public MyPriorityQueue(int capacity)
+        {
+            this.capacity = capacity;
+            dataArr = new T[capacity];
+        }
+
         public void Enqueue(T data)
         {
             if (capacity <= Count)
