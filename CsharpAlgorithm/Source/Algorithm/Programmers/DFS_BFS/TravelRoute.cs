@@ -4,11 +4,30 @@ using System.Linq;
 
 namespace CsharpAlgorithm.Source
 {
+    class Route : IComparable<Route>
+    {
+        public string StartPoint { get; private set; } = null;
+        public string DestPoint { get; private set; } = null;
+
+        public Route(string startPoint, string destPoint)
+        {
+            StartPoint = startPoint;
+            DestPoint = destPoint;
+        }
+
+        public int CompareTo(Route other)
+        {
+            return this.DestPoint.CompareTo(other.DestPoint);
+        }
+    }
+
     /// <summary>
     /// 여행경로 https://programmers.co.kr/learn/courses/30/lessons/43164
     /// </summary>
     class TravelRoute
     {
+        private List<Route> routeList = null;
+
         //알고리즘 문제에서 제공되는 input에 따른 결과값이 일치하는지 비교
         public TravelRoute()
         {
@@ -32,7 +51,23 @@ namespace CsharpAlgorithm.Source
 
         public string[] Solution(string[,] ticketArr)
         {
+            Init(ticketArr);
+
             return null;
+        }
+
+        private void Init(string[,] ticketArr)
+        {
+            int count = ticketArr.GetLength(0);
+
+            routeList = new List<Route>(count);
+
+            for (int i = 0; i < count; i++)
+            {
+                routeList.Add(new Route(ticketArr[i, 0], ticketArr[i, 1]));
+            }
+
+            routeList.Sort();
         }
     }
 }
