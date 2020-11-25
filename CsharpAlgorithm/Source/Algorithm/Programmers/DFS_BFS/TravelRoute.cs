@@ -27,6 +27,9 @@ namespace CsharpAlgorithm.Source
     class TravelRoute
     {
         private List<Route> routeList = null;
+        private Stack<string> resultStack = null;
+
+        private bool[] visitedArr = null;
 
         //알고리즘 문제에서 제공되는 input에 따른 결과값이 일치하는지 비교
         public TravelRoute()
@@ -53,14 +56,20 @@ namespace CsharpAlgorithm.Source
         {
             Init(ticketArr);
 
-            return null;
+            DFS("ICN");
+
+            resultStack.Push("ICN");
+
+            return resultStack.ToArray();
         }
 
         private void Init(string[,] ticketArr)
         {
             int count = ticketArr.GetLength(0);
 
+            resultStack = new Stack<string>();
             routeList = new List<Route>(count);
+            visitedArr = new bool[count];
 
             for (int i = 0; i < count; i++)
             {
@@ -68,6 +77,21 @@ namespace CsharpAlgorithm.Source
             }
 
             routeList.Sort();
+        }
+
+        private void DFS(string startPoint)
+        {
+            int count = routeList.Count;
+
+            for (int i = 0; i < count; i++)
+            {
+                if(!visitedArr[i] && startPoint == routeList[i].StartPoint)
+                {
+                    visitedArr[i] = true;
+                    DFS(routeList[i].DestPoint);
+                    resultStack.Push(routeList[i].DestPoint);
+                }
+            }
         }
     }
 }
