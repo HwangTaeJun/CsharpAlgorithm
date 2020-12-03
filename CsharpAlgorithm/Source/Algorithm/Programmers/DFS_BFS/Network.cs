@@ -11,6 +11,10 @@ namespace CsharpAlgorithm.Source
     /// </summary>
     class Network
     {
+        private int[,] computerArr = null;
+        private bool[] visitedArr = null;
+        private int count = 0;
+
         public Network()
         {
             List<int> inputCountList = new List<int>() { 3, 3, 6 };
@@ -36,7 +40,23 @@ namespace CsharpAlgorithm.Source
 
         public int Solution(int count, int[,] computerArr)
         {
+            this.count = count;
+            this.computerArr = computerArr;
+            visitedArr = new bool[count];
+
             return 0;
+        }
+
+        public void DFS(int computerIndex)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                if(!visitedArr[i] && computerArr[computerIndex, i] == 1)
+                {
+                    visitedArr[i] = true;
+                    DFS(i);
+                }
+            }
         }
     }
 }
