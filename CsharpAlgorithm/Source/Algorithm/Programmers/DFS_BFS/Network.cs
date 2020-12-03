@@ -44,16 +44,30 @@ namespace CsharpAlgorithm.Source
             this.computerArr = computerArr;
             visitedArr = new bool[count];
 
-            return 0;
+            int result = 0;
+
+            //새로운 네트워크 찾기
+            for (int i = 0; i < count; i++)
+            {
+                if(!visitedArr[i])
+                {
+                    result++;
+                    DFS(i);
+                }
+            }
+
+            return result;
         }
 
         public void DFS(int computerIndex)
         {
+            //index와 for의 i값이 겹치는 경우를 미리 제외
+            visitedArr[computerIndex] = true;
+
             for (int i = 0; i < count; i++)
             {
                 if(!visitedArr[i] && computerArr[computerIndex, i] == 1)
                 {
-                    visitedArr[i] = true;
                     DFS(i);
                 }
             }
