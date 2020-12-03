@@ -10,7 +10,7 @@ public class Program
 {
     static void Main(string[] args)
     {
-        TravelRoute travelRoute = new TravelRoute();
+        Network network = new Network();
 
         Console.ReadLine();
     }

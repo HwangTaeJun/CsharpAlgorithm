@@ -48,6 +48,7 @@
     <Compile Include="Source\Algorithm\Algospot\Picnic.cs" />
     <Compile Include="Source\Algorithm\BackJoon\ShortestRoute.cs" />
     <Compile Include="Source\Algorithm\BackJoon\SugarDelivery.cs" />
+    <Compile Include="Source\Algorithm\Programmers\DFS_BFS\Network.cs" />
     <Compile Include="Source\Algorithm\Programmers\DFS_BFS\TravelRoute.cs" />
     <Compile Include="Source\DataStructure\MyDoubleLinkedList.cs" />
     <Compile Include="Source\DataStructure\MyHashTable.cs" />
