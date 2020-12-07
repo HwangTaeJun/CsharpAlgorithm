@@ -10,7 +10,7 @@ public class Program
 {
     static void Main(string[] args)
     {
-        Network network = new Network();
+        IntegerTriangle integerTriangle = new IntegerTriangle();
 
         Console.ReadLine();
     }
