@@ -22,7 +22,7 @@ namespace CsharpAlgorithm.Source
             inputTriangleList.Add(new List<int>() { 2, 7, 4, 4 });
             inputTriangleList.Add(new List<int>() { 4, 5, 2, 6, 5 });
 
-            if(result == Solution(inputTriangleList))
+            if (result == Solution(inputTriangleList))
             {
                 Console.WriteLine("입력값에 따른 결과값이 일치");
             }
@@ -30,7 +30,29 @@ namespace CsharpAlgorithm.Source
 
         private int Solution(List<List<int>> triangleList)
         {
-            return 0;
+            int depth = triangleList.Count - 1;
+
+            for (int i = 0; i < depth; i++)
+            {
+                int nodeCount = triangleList[depth - i].Count;
+
+                for (int j = 0; j < nodeCount - 1; j++)
+                {
+                    int leftNum = triangleList[depth - i][j];
+                    int rightNum = triangleList[depth - i][j + 1];
+
+                    if (leftNum < rightNum)
+                    {
+                        triangleList[depth - i - 1][j] += rightNum;
+                    }
+                    else
+                    {
+                        triangleList[depth - i - 1][j] += leftNum;
+                    }
+                }
+            }
+
+            return triangleList[0][0];
         }
     }
 }
