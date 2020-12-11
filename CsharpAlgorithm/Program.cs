@@ -10,7 +10,7 @@ public class Program
 {
     static void Main(string[] args)
     {
-        IntegerTriangle integerTriangle = new IntegerTriangle();
+        ShortestMap shortestMap = new ShortestMap();
 
         Console.ReadLine();
     }
