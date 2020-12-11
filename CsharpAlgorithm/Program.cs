@@ -10,7 +10,7 @@ public class Program
 {
     static void Main(string[] args)
     {
-        ShortestMap shortestMap = new ShortestMap();
+        OverTimeIndex overTimeIndex = new OverTimeIndex();
 
         Console.ReadLine();
     }
