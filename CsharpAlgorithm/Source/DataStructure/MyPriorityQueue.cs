@@ -28,16 +28,32 @@ namespace CsharpAlgorithm.Source
         private T[] dataArr = null;
 
         private int capacity = 100;
+        private int compareValue = 0;
 
         public int Count { get; private set; } = 0;
 
-        public MyPriorityQueue()
+        public MyPriorityQueue(bool isAcendingOrder = true)
         {
+            compareValue = 1;
+
+            if (!isAcendingOrder)
+            {
+                compareValue = -1;
+            }
+
+
             dataArr = new T[capacity];
         }
 
-        public MyPriorityQueue(int capacity)
+        public MyPriorityQueue(int capacity, bool isAcendingOrder = true)
         {
+            compareValue = 1;
+
+            if (!isAcendingOrder)
+            {
+                compareValue = -1;
+            }
+
             this.capacity = capacity;
             dataArr = new T[capacity];
         }
@@ -56,7 +72,7 @@ namespace CsharpAlgorithm.Source
                 int currentNodeIndex = Count;
                 int parentIndex = (currentNodeIndex - 1) / 2;
 
-                while (dataArr[parentIndex].CompareTo(dataArr[currentNodeIndex]) == 1)
+                while (dataArr[parentIndex].CompareTo(dataArr[currentNodeIndex]) == compareValue)
                 {
                     Swap(parentIndex, currentNodeIndex);
 
@@ -94,13 +110,13 @@ namespace CsharpAlgorithm.Source
                         int rightChildIndex = childIndex + 1;
 
                         //자식 간 우선순위 비교
-                        if (rightChildIndex <= lastIndex && dataArr[childIndex].CompareTo(dataArr[rightChildIndex]) == 1)
+                        if (rightChildIndex <= lastIndex && dataArr[childIndex].CompareTo(dataArr[rightChildIndex]) == compareValue)
                         {
                             childIndex = rightChildIndex;
                         }
 
                         //현재 노드와 우선순위가 높은 자식과 우선순위 비교
-                        if (dataArr[currentNodeIndex].CompareTo(dataArr[childIndex]) == 1)
+                        if (dataArr[currentNodeIndex].CompareTo(dataArr[childIndex]) == compareValue)
                         {
                             Swap(childIndex, currentNodeIndex);
 
