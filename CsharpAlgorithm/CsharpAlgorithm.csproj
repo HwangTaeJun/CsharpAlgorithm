@@ -52,6 +52,7 @@
     <Compile Include="Source\Algorithm\Programmers\DFS_BFS\TravelRoute.cs" />
     <Compile Include="Source\Algorithm\Programmers\DynamicProgramming\IntegerTriangle.cs" />
     <Compile Include="Source\Algorithm\Programmers\ExcerciseProblem\OverTimeIndex.cs" />
+    <Compile Include="Source\Algorithm\Sort\MySort.cs" />
     <Compile Include="Source\DataStructure\MyDoubleLinkedList.cs" />
     <Compile Include="Source\DataStructure\MyHashTable.cs" />
     <Compile Include="Source\DataStructure\MyPriorityQueue.cs" />
