@@ -70,7 +70,63 @@ namespace CsharpAlgorithm.Source
 
             return dataArr;
         }
-        
+
+        public int[] QuickSort(int[] dataArr)
+        {
+            Patition(dataArr, 0, dataArr.Length - 1);
+
+            return dataArr;
+        }
+
+        private void Patition(int[] dataArr, int left, int right)
+        {
+            int count = dataArr.Length;
+            int pivot = left;
+
+            int high = left;
+            int low = right;
+
+            while (true)
+            {
+                while (high < count && dataArr[high] <= dataArr[pivot])
+                {
+                    high++;
+                }
+
+                while (low > 0 && dataArr[low] > dataArr[pivot])
+                {
+                    low--;
+                }
+
+                if(high > low)
+                {
+                    break;
+                }
+
+                if (high != low)
+                {
+                    Swap(dataArr, high, low);
+                }
+            }
+
+            if(pivot != low)
+            {
+                Swap(dataArr, low, pivot);
+            }
+
+            pivot = low;
+
+            if (pivot > left + 1)
+            {
+                Patition(dataArr, 0, pivot - 1);
+            }
+
+            if (right - pivot > 1)
+            {
+                Patition(dataArr, pivot + 1, right);
+            }
+        }
+
         private void Compare(int[] dataArr, int index, int index2)
         {
             if (dataArr[index] > dataArr[index2])

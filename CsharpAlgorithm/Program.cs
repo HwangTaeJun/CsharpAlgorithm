@@ -14,6 +14,7 @@ public class Program
 
         MySort mySort = new MySort();
 
+        mySort.QuickSort(dataArr);
         mySort.InsertSort(dataArr);
         mySort.BubbleSort(dataArr);
         mySort.SelectSort(dataArr);
